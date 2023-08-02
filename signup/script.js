@@ -9,20 +9,12 @@ const confirmPasswordInput = document.getElementById("confirmPassword");
 // Initialize user array from localStorage or create empty array
 const user = JSON.parse(localStorage.getItem("user")) || [];
 
-// Regex to validate email format
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-// Validate email format
-function isValidEmail(email) {
-  return emailRegex.test(email);
-}
-
 // Check if email already exists in user array
 function isDuplicateEmail(email) {
-  return user.some(user => user.email === email);
+  return user.some((user) => user.email === email);
 }
 
-// Handle form submission
+// form submission
 function signup(event) {
   event.preventDefault();
 
@@ -46,11 +38,6 @@ function signup(event) {
     return;
   }
 
-  if (!isValidEmail(email)) {
-    alert("Invalid email");
-    return;
-  }
-
   if (isDuplicateEmail(email)) {
     alert("Email already in use");
     return;
@@ -71,8 +58,7 @@ function signup(event) {
   confirmPasswordInput.value = "";
 
   alert("Signup successful");
-  window.location.href ="/login/index.html";
+  window.location.href = "/login/index.html";
 }
 
-// Add event listener to form submit event
 form.addEventListener("submit", signup);
