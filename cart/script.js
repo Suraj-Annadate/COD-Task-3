@@ -15,7 +15,7 @@ if(!localStorage.getItem("currentUser")){
     window.location.href  ="../index.html";
    },1000);
 }
-// Welcome Messege
+
 const user1 = JSON.parse(localStorage.getItem('currentUser'));
 
 
